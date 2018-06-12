@@ -1,0 +1,33 @@
+<!-- layout.nunjucks -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="keywords" content="">
+	<meta name="author" content="IA Interactive">
+
+	<title>{% if title %}{{ title }} | Combo mundial 2018{% else %}Combo mundial 2018{% endif %}</title>
+
+	<!-- Css -->
+	<link href="https://fonts.googleapis.com/css?family=Muli:300,400,900" rel="stylesheet">
+	<link rel="stylesheet" href="/Content/css/psth-master.css">
+
+</head>
+<body class="ap" ontouchstart="">
+	<main class="ap-main ap-loading">
+
+			<!-- Block content -->{% block content %}{% endblock %}
+
+		{% include "partials/modal-bx--loading.html" %}
+		{% include "partials/modal-bx--data.html" %}
+
+		<!-- // Scripts -->
+		<script src="/Scripts/jquery-1.10.2.min.js"></script>
+		<script src="/Scripts/jquery.vendors.js"></script>
+		<script src="/Scripts/actions/jquery.actions.js"></script>
+
+		<!-- Block scripts -->{% block js %}{% endblock %}
+	</main>
+</body>
+</html>

@@ -1,0 +1,293 @@
+.ap
+	&-overlay
+		background-color: rgba(0, 0, 0, .95)
+		display: none
+		height: 100%;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		left: 0
+		z-index: 22;
+
+		&--leaving
+			.ap-overlay-area
+				animation: 1s fadeOutUpBig both !important
+
+		&-table
+			display: inline-table
+			height: 100%
+			width: 100%
+
+		&-load
+			margin: auto;
+			max-width: 310px;
+			padding: .5em;
+			position: relative;
+
+			+above(768px)
+				max-width: 600px
+
+		&-cell
+			display: table-cell
+			vertical-align middle
+
+		&-area
+			margin: auto;
+			max-width: 90%
+			position: relative;
+
+			+above(760px)
+				max-width: 42em
+
+			@media only screen and (min-width: 480px) and (max-width: 740px) and (orientation: landscape)
+				max-width: 72%;
+
+		&-head
+			padding: 1em
+
+		&-landscape
+			margin-top: 9em
+			margin: auto;
+			max-width: 310px;
+			padding: .5em;
+			position: relative;
+
+			+above(768px)
+				max-width: 600px
+
+		.ap-md
+			&-nav
+				padding: 0 1em 1em
+				text-align: center
+
+				.ap-btn
+					display: block
+					margin: auto
+
+	&-modal
+		.ap
+			&-tt
+				font-size: 3em;
+				font-weight: 700;
+				margin-bottom: .4em;
+				padding: 1.6em 0 .8em;
+				color: #fff;
+				text-transform: uppercase;
+				text-align: center;
+
+				&-third
+					color: $black
+					font-size: 1.1em
+					margin-bottom: .6em
+					text-align center
+
+			&-btn
+				&-close
+					color: $redf
+					font-size: 1em
+					line-height: 1.5em;
+					position: relative
+
+		&--leave
+			.ap
+				&-modal
+					.ap-tt
+						margin-bottom: 0
+						color: $yell
+						padding: 1.6em 0 0.6em
+
+				&-txt
+					color: #FFF;
+					padding: 0 4em;
+					font-size: 1.2em;
+					text-align: center
+
+				&-md-nav
+					.ap-btn
+						margin-top: 1em
+
+					+above(760px)
+						padding: 0 1em 1em;
+						text-align: center;
+						max-width: 24em;
+						margin: 4em auto 0;
+
+
+				&-overlay
+					&-area
+						max-width: 24em
+						margin: auto
+						width: 100%
+
+						+above(760px)
+							max-width: 42em
+
+		&--terms, &--instructions
+			.ap
+				&-scroll
+					font-family: $subFont
+					font-weight: 300
+					margin: 1em auto;
+					padding: 0 1em
+					width: 95%;
+					position: relative;
+					overflow: hidden
+
+					p
+						padding-bottom: 1em
+						color: #FFF
+
+						a
+							color: $bluebb
+							text-decoration: underline
+
+					a
+						color: $black
+
+				&-modal
+					&-terms-data
+						padding-right: 1em
+
+		&--terms
+			.ap-scroll
+				max-height: 22em
+
+				@media only screen and (min-width : 320px) and (max-width : 568px)
+					max-height: 20em
+
+				+above(1000px)
+					min-height: 32em
+
+			.ap-modal
+				padding-bottom: .1em
+
+			+above(1040px)
+				.ap-overlay-area
+					max-width: 42em
+
+		&--instructions
+			.ap-scroll
+				max-height: 16em;
+
+			.ap-modal
+				padding-bottom: .1em
+
+				&-trms
+					&-item
+						counter-increment: item;
+						position: relative;
+						padding-left: 2.8em;
+						min-height: 3em;
+
+						&:before
+							color: $red
+							content: counter(item);
+							position: absolute;
+							width: 1.6em;
+							height: 1.6em;
+							line-height: 1.7em;
+							left: 0;
+							border: .2em solid;
+							text-align: center;
+							font-weight: 700;
+							border-radius: 10em;
+
+				&-fld
+					padding: 1em 0
+
+					.ap
+						&-tt-sub
+							text-transform: uppercase
+							font-weight: 700
+							color: $red
+							margin-bottom: .4em
+
+			.ap-overlay-area
+				max-width: 24em
+
+		&--login
+			.ap-btn--login
+				background: $facebook
+				border-radius: 0;
+				border: none;
+				box-shadow: none;
+				color: #FFF;
+				font-family: $subFont
+				font-size: 1.3em;
+				font-weight: 400;
+				max-width: 100%;
+				padding: 2em 0
+				position: relative;
+				text-transform: none;
+
+				&:before
+					margin-right: 2em
+
+			.ap-modal
+				margin: auto;
+				max-width: 320px;
+				min-height: 320px;
+				padding-top: 340px;
+				position: relative;
+
+		&--is-visible
+			display: block
+
+			.ap-overlay
+				&-table
+					opacity: 1
+					position: relative
+					z-index: 1
+
+		&--landscape
+			@media only screen and (min-width: 480px) and (max-width: 736px) and (orientation: landscape)
+				display: block
+
+			.ap-ldr-area
+				position: relative
+				color: #FFF
+				z-index: 2
+				padding: 1em
+				font-size: 2.5em
+
+			.ap-ldr-gif
+				max-width: 3em;
+				position: fixed;
+				bottom: 0.2em;
+				right: .2em;
+
+			.ap-txt
+				color: #FFF
+
+			.ap-cell
+				vertical-align: top
+
+
+#closeLogin
+	width: 40px
+	height: 40px
+	position: absolute
+	right: 10px
+	top: 10px
+	border-radius: 20px
+	border 2px solid white
+	transform: rotate(45deg)
+	&:before,
+	&:after
+		content ''
+		position absolute
+		display block
+		background white
+
+	&:before
+		width: 2px;
+		height: 24px;
+		border-radius: 2px;
+		left: calc(50% - 1px);
+		top: calc(50% - 12px);
+	&:after
+		width: 24px;
+		height: 2px;
+		border-radius: 2px;
+		left: calc(50% - 12px);
+		top: calc(50% - 1px);

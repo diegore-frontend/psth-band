@@ -1,0 +1,197 @@
+.ap
+	&-field
+		// Label
+		&-label
+			color: #FFF
+			display: block
+			font-family: 'Roboto Condensed', sans-serif
+			font-weight: 400
+			margin-bottom: .6em
+
+			.checker
+				border-radius: 10em
+				border: 2px solid #DCDEEB
+				display: inline-block
+
+			&-link
+				color: $red
+				text-decoration: underline
+				position: relative
+
+				&:before
+					background-color: $orange
+					bottom: 0;
+					content: "";
+					height: 1px;
+					position: absolute;
+					width: 100%;
+
+			&-txt
+				color: #FFF
+				display inline-block
+				padding-left: 0.6em
+				vertical-align middle
+				width: calc(100% - 34px)
+
+		// Dropdown
+		&-select
+			.selector
+				background-color: rgba(255, 255, 255, .2)
+				border: 1px solid #fff;
+				border-radius: 0;
+				color: #fff;
+
+				&.hover
+					background-colo: rgba(255, 255, 255, .2) !important
+
+				span
+					position: relative
+					padding: .8em
+
+					&:before
+						font-family: 'ms-icons' !important
+						content: "\e911";
+						font-size: 2.5em;
+						height: 1.2em;
+						position: absolute;
+						right: 0;
+						text-align: center;
+						top: 0;
+						transform: rotate(180deg);
+						width: 1.2em;
+
+	// Inputs
+	&-form
+		&-txt
+			-webkit-appearance: none;
+			background-color: rgba(255,255,255,0.0);
+			border-bottom: 1px solid $redf
+			border-width: 0 0 1.4px 0;
+			color: #FFF
+			display: block;
+			font-size: 1.2em;
+			font-weight: 400;
+			margin: auto;
+			max-width: 80%;
+			padding: .6em;
+			text-align: center;
+			width: 100%;
+
+			&::placeholder
+				color: grey
+
+
+			&--error
+				border-color: $red
+
+			&--oka
+				border-color: $yell
+
+
+
+// Uniforms
+div.checker
+	display: inline-block
+	zoom: 1
+	vertical-align: middle
+	&:focus
+		outline: 0
+
+div.checker, div.checker *
+	margin: 0
+	padding: 0
+
+
+div.checker input,
+input[type="search"],
+input[type="search"]:active
+	-moz-appearance: none
+	-webkit-appearance: none
+
+// Checker
+div.checker
+	margin-right: 5px
+	position: relative
+
+	span
+		display: inline-block
+		zoom: 1
+		text-align: center
+		position: relative
+
+		&:before
+			font-family: 'ms-icons';
+			content: "\e903"
+			color: #FFF
+			font-size: 1.2em
+
+
+		&.checked
+			position: relative
+
+			&:before
+				content: "\e900";
+				border-radius: 1em
+
+	input
+		border: medium none
+		display: inline-block
+		left: 0
+		opacity: 0
+		position: absolute
+		top: 0
+
+div.checker, div.checker span, div.checker input
+	width: 22px
+	height: 22px
+
+// Validation
+.ap
+	&-field
+		&--error
+			.ap
+				&-form-txt
+					border-color: $red
+
+				&-field-val
+					display: block
+
+			&-msg
+				background-color: $red
+				color: #fff;
+				left: -1.5em;
+				margin-top: 1em;
+				padding: 1em;
+				position: relative;
+				width: 100%
+
+				&:before
+					background-color: $red;
+					content: '';
+					height: 100%;
+					left: 0;
+					position: absolute;
+					top: 0;
+					width: 140%;
+					z-index: -1;
+
+				+above(1020px)
+					width: 420px
+
+					&:before
+						display: none
+
+		&--validate
+			.ap
+				&-form-txt
+					border-color: #D2A65B
+
+		&-val
+			color: #9a0000
+			display: none;
+			font-size: .88em;
+			font-weight: 700;
+			line-height: 2.1em;
+			padding: 0 0.4em;
+
+

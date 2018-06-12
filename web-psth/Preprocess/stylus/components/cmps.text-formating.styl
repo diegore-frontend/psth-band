@@ -1,0 +1,50 @@
+// Titles
+h1
+	font-size: 1.8em
+
+h2
+	font-size 1.7em
+
+h3
+	font-size: 1.3em
+
+h4
+	font-size: 1.2em
+
+.ap
+	// Text titles
+	&-tt
+		font-weight: 900
+		text-transform: uppercase
+		color: #FFF
+		text-align: center
+
+		&-sub, &-tsub
+			@extend .ap-tt
+
+
+		&-sub
+			letter-spacing: .2em
+			font-size: 2.4em
+			margin-bottom: 1em
+
+	&-txt
+		color: #FFF
+		font-family: $subFont
+
+		&--link
+			color: #FFF
+			text-decoration: underline
+
+		&--yell
+			color: $yell
+
+		&--small
+			display: block
+			font-size: .8em
+			color: grey
+
+		&--nu
+			font-weight: 900
+			color: $redf
+

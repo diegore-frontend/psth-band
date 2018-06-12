@@ -1,0 +1,39 @@
+.ps-container.ps-active-x > .ps-scrollbar-x-rail,.ps-container.ps-active-y > .ps-scrollbar-y-rail
+	display block
+
+.ps-container > .ps-scrollbar-y-rail
+	background-color: rgba(#FFF, .2);
+	display: none;
+	filter: none;
+	opacity: 1;
+	position: absolute;
+	right: 3px;
+	width: .4em;
+
+.ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y
+	background-color: rgba(#FFF, .75)
+	border-radius: 0.2em;
+	position: absolute
+	transition: background-color 0.2s linear 0s;
+	width: .4em;
+
+.ps-container:hover > .ps-scrollbar-x-rail,.ps-container:hover > .ps-scrollbar-y-rail
+	opacity 1
+
+.ps-container > .ps-scrollbar-x-rail.in-scrolling,.ps-container > .ps-scrollbar-y-rail.in-scrolling,.ps-container:hover > .ps-scrollbar-x-rail.in-scrolling,.ps-container:hover > .ps-scrollbar-y-rail.in-scrolling
+	background-color #000
+	opacity 1
+
+.ps-container:hover > .ps-scrollbar-x-rail:hover,.ps-container:hover > .ps-scrollbar-y-rail:hover
+	opacity .1
+
+.vc-overflow
+	overflow: hidden;
+	position: relative;
+
+	&-scroller
+		height: 100%
+		overflow: hidden
+		position: relative
+		padding-right: 1.2em
+

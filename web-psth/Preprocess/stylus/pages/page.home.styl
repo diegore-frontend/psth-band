@@ -1,0 +1,65 @@
+.ap
+	&-data
+		.ap-tt
+			font-weight: 700
+			font-size: 1.8em
+
+			&--small
+				font-weight: 300
+				color: $redf
+				display: block
+
+	&-dash
+		padding: 0 1em
+
+		&-lf, &-rg
+			float: left
+
+		&-lf
+			width: 4.4em
+
+		&-rg
+			width: 5em
+
+		&-bar
+			float: left;
+			margin-right: 1em;
+			width: calc(100% - 10.4em);
+
+			&--progress
+				height: .8em
+				background-color: rgba(255, 255, 255, .75)
+				width: 100%
+				display: block
+				border-radius: 10em
+
+				&-in
+					background-color: $redf
+					height: 100%
+					border-radius: 10em
+					width: 50%
+					display: block
+
+
+	&-pay
+		&-opt
+			text-align: center
+
+			.ap-btn-tag
+				display: inline-block
+				margin-right: .6em
+				width: 100%
+
+				&:last-child
+					margin: 0
+
+			.ap-btn--pay
+				display: inline-block
+				width: 100%
+				margin-bottom: 1em
+
+			.ap-form-txt
+				margin-bottom: 1em
+
+			.cf
+				margin: 2em 0

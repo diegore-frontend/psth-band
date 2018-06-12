@@ -1,0 +1,94 @@
+/* General settings */
+div.selector, div.checker, div.button, div.radio, div.uploader
+	display: inline-block
+	zoom: 1
+	vertical-align: middle
+	&:focus
+		outline: 0
+
+div.selector, div.selector *, div.radio, div.radio *, div.checker, div.checker *, div.uploader, div.uploader *, div.button, div.button *
+	margin: 0
+	padding: 0
+
+.highContrastDetect
+	width: 0px
+	height: 0px
+
+input.uniform-input,
+select.uniform-multiselect,
+textarea.uniform
+	padding: 3px
+	outline: 0
+input.uniform-input.active,
+select.uniform-multiselect.active,
+textarea.uniform.active
+	background: #fff;
+
+div.checker input,
+input[type="search"],
+input[type="search"]:active
+	-moz-appearance: none
+	-webkit-appearance: none
+
+/* Select */
+div.selector
+	border-radius 3px
+	overflow: hidden
+	padding: 0 0 0 10px
+	position: relative
+	width: 100% !important
+	zoom: 0
+
+	span
+		background-position: right 0
+		cursor: pointer
+		display: block
+		display: block
+		overflow: hidden
+		text-overflow: ellipsis
+		white-space: nowrap
+		padding-right: 2em
+		width: 99.9% !important
+
+	select
+		opacity 0
+		border: none
+		background:  #FFF
+		position: absolute
+		height: 100%
+		top: 0
+		left: 0px
+		width: 100%
+
+div.selector.active
+	background: #FFF
+div.selector.hover, div.selector.focus
+	background: #ccc
+	border:solid 1px #a6afbe
+div.selector.hover.active, div.selector.focus.active
+	background: #FFF
+div.selector.fixedWidth
+	width: 190px
+	span
+		width: 155px
+
+/* Checkbox */
+div.checker
+	position: relative
+
+	span
+		display: inline-block
+		text-align: center
+		zoom: 1
+
+	input
+		opacity 0
+		border: none
+		background: none
+		display: inline-block
+		zoom: 1
+
+div.checker, div.checker span, div.checker input
+	height: 20px
+	width: 20px
+
