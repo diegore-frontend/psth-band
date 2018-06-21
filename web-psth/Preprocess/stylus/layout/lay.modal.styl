@@ -83,127 +83,23 @@
 
 			&-btn
 				&-close
-					color: $redf
-					font-size: 1em
+					color: #fc1010;
+					font-size: 1.4em;
 					line-height: 1.5em;
-					position: relative
+					position: absolute;
+					top: 50%;
+					margin-top: -16em;
 
-		&--leave
-			.ap
-				&-modal
-					.ap-tt
-						margin-bottom: 0
-						color: $yell
-						padding: 1.6em 0 0.6em
+		&--video
+			.ap-tube
+				max-width: 25em
+				margin: auto;
 
-				&-txt
-					color: #FFF;
-					padding: 0 4em;
-					font-size: 1.2em;
-					text-align: center
+				iframe
+					width: 100%
 
-				&-md-nav
-					.ap-btn
-						margin-top: 1em
-
-					+above(760px)
-						padding: 0 1em 1em;
-						text-align: center;
-						max-width: 24em;
-						margin: 4em auto 0;
-
-
-				&-overlay
-					&-area
-						max-width: 24em
-						margin: auto
-						width: 100%
-
-						+above(760px)
-							max-width: 42em
-
-		&--terms, &--instructions
-			.ap
-				&-scroll
-					font-family: $subFont
-					font-weight: 300
-					margin: 1em auto;
-					padding: 0 1em
-					width: 95%;
-					position: relative;
-					overflow: hidden
-
-					p
-						padding-bottom: 1em
-						color: #FFF
-
-						a
-							color: $bluebb
-							text-decoration: underline
-
-					a
-						color: $black
-
-				&-modal
-					&-terms-data
-						padding-right: 1em
-
-		&--terms
-			.ap-scroll
-				max-height: 22em
-
-				@media only screen and (min-width : 320px) and (max-width : 568px)
-					max-height: 20em
-
-				+above(1000px)
-					min-height: 32em
-
-			.ap-modal
-				padding-bottom: .1em
-
-			+above(1040px)
-				.ap-overlay-area
-					max-width: 42em
-
-		&--instructions
-			.ap-scroll
-				max-height: 16em;
-
-			.ap-modal
-				padding-bottom: .1em
-
-				&-trms
-					&-item
-						counter-increment: item;
-						position: relative;
-						padding-left: 2.8em;
-						min-height: 3em;
-
-						&:before
-							color: $red
-							content: counter(item);
-							position: absolute;
-							width: 1.6em;
-							height: 1.6em;
-							line-height: 1.7em;
-							left: 0;
-							border: .2em solid;
-							text-align: center;
-							font-weight: 700;
-							border-radius: 10em;
-
-				&-fld
-					padding: 1em 0
-
-					.ap
-						&-tt-sub
-							text-transform: uppercase
-							font-weight: 700
-							color: $red
-							margin-bottom: .4em
-
-			.ap-overlay-area
-				max-width: 24em
+				+above(760px)
+					max-width: 53em
 
 		&--login
 			.ap-btn--login
