@@ -22,22 +22,26 @@
 			<div class="ap-table">
 				<div class="ap-cell">
 					<div class="ap-area">
-						<h1 class="ap-tt">
-							<small class="ap-tt--small">Rising</small>
-							<!-- The Phoenix -->
-						</h1>
 						<div class="ap-hm-cta">
+							<h1 class="ap-tt">
+								<small class="ap-tt--small">Rising</small>
+								The Phoenix
+							</h1>
 							<figure class="ap-img">
-								<!-- <img src="/Content/img/img-front.png" alt="Phoenix Survive The Hurricane" class="ap-img-itm"> -->
+								<img src="/Content/img/img-front.png" alt="Phoenix Survive The Hurricane" class="ap-img-itm">
 							</figure>
-							<a href="" class="ap-btn ap-btn--play">
+							<a href="#ap-modal--video" class="ap-btn ap-btn--play ap-mol">
 								<span class="icon-controller-play"></span>
 								Dale Play
 							</a>
 						</div>
 
+						<p class="ap-txt">
+							<span class="ap-txt--red">¡Hola! Somos PSTH y necesitamos de ti.</span> ayudanos a alcanzar nuestro sueño. Da play y checa nuestra propuesta de <strong>croudfounding</strong>
+						</p>
+
 						<nav class="ap-nav">
-							<a href="#" class="ap-btn ap-btn--pay icon-heart">Contribuir</a>
+							<a href="#ap-modal--data" class="ap-btn ap-btn--pay icon-heart ap-mol">Contribuir</a>
 							<small class="ap-txt--small">Powered by Paypal</small>
 						</nav>
 					</div>
@@ -50,25 +54,21 @@
 			<div class="ap-table">
 				<div class="ap-cell">
 					<div class="ap-load-area">
-						<a href="#" class="icon-left ap-modal-close ap-btn-close"></a>
-						<figure class="ap-load-item">
-							<img src="/Content/img/img-ld-ball.png" alt="Balón">
-						</figure>
 						<p class="ap-txt">Cargando...</p>
 					</div>
 				</div>
 			</div>
 		</article>
 
-		<article id="ap-modal--data" class="ap-overlay ap-modal--data ap-modal--is-visible">
+		<article id="ap-modal--data" class="ap-overlay ap-modal--data">
 			<div class="ap-table">
 				<div class="ap-cell">
 					<div class="ap-md-area ap-modal ap-data">
-						<a href="#" class="icon-left ap-modal-close ap-btn-close">Ver video</a>
+						<a href="#" class="icon-left ap-modal-close ap-btn-close">VER VIDEO</a>
 
 						<h1 class="ap-tt">
 							<small class="ap-tt--small">La meta</small>
-							<span class="ap-tt ap-js--num">$10,000</span>
+							<span class="ap-js--num">$10,000</span>
 						</h1>
 
 						<div class="ap-dash cf">
@@ -95,11 +95,24 @@
 								<a href="#" class="ap-btn-tag ap-btn-tag--selected" data-value="500">$500</a>
 							</div>
 
-							<input type="text" class="ap-form-txt" placeholder="más? escribe otra cantidad">
+							<input type="text" class="ap-form-txt" placeholder="Más? escribe otra cantidad">
 
 							<a href="#" class="ap-btn ap-btn--pay icon-heart">Contribuir</a>
 							<small class="ap-txt--small">Powered by Paypal</small>
 						</nav>
+					</div>
+				</div>
+			</div>
+		</article>
+
+		<article id="ap-modal--video" class="ap-overlay ap-modal--video">
+			<div class="ap-table">
+				<div class="ap-cell">
+					<div class="ap-md-area ap-modal ap-tube">
+						<a href="#" class="icon-close ap-modal-close ap-btn-close"></a>
+						<div class="ap-trailer-player">
+							<div id="player"></div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -112,6 +125,7 @@
 		<script src="/Scripts/actions/jquery.actions.js"></script>
 
 		<!-- Block scripts -->
+		<script src="https://www.youtube.com/iframe_api" async="" ></script>
 
 	</main>
 </body>
