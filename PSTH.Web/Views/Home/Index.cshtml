@@ -1,95 +1,108 @@
 ﻿@model PSTH.Web.Controllers.IndexViewModel
-    <!-- Block content -->
-    <section class="ap-home ap-lay">
-        <div class="ap-table">
-            <div class="ap-cell">
-                <div class="ap-area">
+<!-- Block content -->
+<section class="ap-home ap-lay">
+    <div class="ap-table">
+        <div class="ap-cell">
+            <div class="ap-area">
+                <div class="ap-hm-cta">
                     <h1 class="ap-tt">
                         <small class="ap-tt--small">Rising</small>
-                        <!-- The Phoenix -->
+                        The Phoenix
                     </h1>
-                    <div class="ap-hm-cta">
-                        <figure class="ap-img">
-                            <!-- <img src="/Content/img/img-front.png" alt="Phoenix Survive The Hurricane" class="ap-img-itm"> -->
-                        </figure>
-                        <a href="" class="ap-btn ap-btn--play">
-                            <span class="icon-controller-play"></span>
-                            Dale Play
-                        </a>
-                    </div>
-
-                    <nav class="ap-nav">
-                        <a href="#" class="ap-btn ap-btn--pay icon-heart">Contribuir</a>
-                        <small class="ap-txt--small">Powered by Paypal</small>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <article id="ap-modal--loading" class="ap-overlay ap-modal--loading ap-modal--is-visible">
-        <div class="ap-table">
-            <div class="ap-cell">
-                <div class="ap-load-area">
-                    <a href="#" class="icon-left ap-modal-close ap-btn-close"></a>
-                    <figure class="ap-load-item">
-                        <img src=@Url.Content("~/Content/img/img-ld-ball.png") alt="Balón">
+                    <figure class="ap-img">
+                        <img src=@Url.Content("~/Content/img/img-front.png") alt="Phoenix Survive The Hurricane" class="ap-img-itm"> 
                     </figure>
-                    <p class="ap-txt">Cargando...</p>
+                    <a href="#ap-modal--video" class="ap-btn ap-btn--play ap-mol" >
+                        <span class="icon-controller-play"></span>
+                        Dale Play
+                    </a>
                 </div>
+
+                <p class="ap-txt">
+                    <span class="ap-txt--red">¡Hola! Somos PSTH y necesitamos de ti.</span> ayudanos a alcanzar nuestro sueño. Da play y checa nuestra propuesta de <strong>croudfounding</strong>
+                </p>
+
+                <nav class="ap-nav">
+                    <a href="#ap-modal--data" class="ap-btn ap-btn--pay icon-heart ap-mol">Contribuir</a>
+                    <small class="ap-txt--small">Powered by Paypal</small>
+                </nav>
             </div>
         </div>
-    </article>
+    </div>
+</section>
 
-    <article id="ap-modal--data" class="ap-overlay ap-modal--data ap-modal--is-visible">
-        <div class="ap-table">
-            <div class="ap-cell">
-                <div class="ap-md-area ap-modal ap-data">
-                    <a href="#" class="icon-left ap-modal-close ap-btn-close">Ver video</a>
 
-                    <h1 class="ap-tt">
-                        <small class="ap-tt--small">La meta</small>
-                        <span class="ap-tt ap-js--num">$10,000</span>
-                    </h1>
+<article id="ap-modal--loading" class="ap-overlay ap-modal--loading ap-modal--is-visible">
+    <div class="ap-table">
+        <div class="ap-cell">
+            <div class="ap-load-area">
+                <p class="ap-txt">Cargando...</p>
+            </div>
+        </div>
+    </div>
+</article>
 
-                    <div class="ap-dash cf">
-                        <div class="ap-dash-lf">
-                            <p class="ap-txt ap-txt--nu">$1000</p>
-                            <p class="ap-txt">Meta</p>
-                        </div>
-                        <div class="ap-dash-bar">
-                            <span class="ap-dash-bar--progress">
-                                <span class="ap-dash-bar--progress-in progress"></span>
-                            </span>
-                        </div>
-                        <div class="ap-dash-rg">
-                            <p class="ap-txt ap-txt--nu">10K</p>
-                            <p class="ap-txt">Alcanzado</p>
-                        </div>
+<article id="ap-modal--data" class="ap-overlay ap-modal--data">
+    <div class="ap-table">
+        <div class="ap-cell">
+            <div class="ap-md-area ap-modal ap-data">
+                <a href="#" class="icon-left ap-modal-close ap-btn-close">VER VIDEO</a>
+
+                <h1 class="ap-tt">
+                    <small class="ap-tt--small">La meta</small>
+                    <span class="ap-js--num">$10,000</span>
+                </h1>
+
+                <div class="ap-dash cf">
+                    <div class="ap-dash-lf">
+                        <p class="ap-txt ap-txt--nu">$1000</p>
+                        <p class="ap-txt">Meta</p>
                     </div>
+                    <div class="ap-dash-bar">
+                        <span class="ap-dash-bar--progress">
+                            <span class="ap-dash-bar--progress-in progress"></span>
+                        </span>
+                    </div>
+                    <div class="ap-dash-rg">
+                        <p class="ap-txt ap-txt--nu">10K</p>
+                        <p class="ap-txt">Alcanzado</p>
+                    </div>
+                </div>
 
-                    <nav class="ap-pay-opt">
-                        <form name="payment" action="@Url.Action("Payment","Payment")" method="post">
-                            <div class="cf">
-                                <a href="javascript:void(0)" class="ap-btn-tag btn-dnt" data-value="50">$50</a>
-                                <a href="javascript:void(0)" class="ap-btn-tag btn-dnt" data-value="100">$100</a>
-                                <a href="javascript:void(0)" class="ap-btn-tag btn-dnt" data-value="200">$200</a>
-                                <a href="javascript:void(0)" class="ap-btn-tag btn-dnt ap-btn-tag--selected" data-value="500">$500</a>
-                            </div>
+                <nav class="ap-pay-opt">
+                    <form name="payment" action="@Url.Action("Payment","Payment")" method="post">
+                        <div class="cf">
+                            <a href="javascript:void(0)" class="ap-btn-tag btn-dnt" data-value="50">$50</a>
+                            <a href="javascript:void(0)" class="ap-btn-tag btn-dnt" data-value="100">$100</a>
+                            <a href="javascript:void(0)" class="ap-btn-tag btn-dnt" data-value="200">$200</a>
+                            <a href="javascript:void(0)" class="ap-btn-tag btn-dnt ap-btn-tag--selected" data-value="500">$500</a>
+                        </div>
 
-                            <input type="text" class="ap-form-txt" placeholder="más? escribe otra cantidad" id="txtboxToFilter">
-                            <input type="hidden" name="Price" value="" />
-                            <a href="javascript:void(0)" class="ap-btn ap-btn--pay icon-heart btn-dnt" data-contribuir="true">Contribuir</a>
-                            <small class="ap-txt--small">Powered by Paypal</small>
-                        </form>
-                    </nav>
+                        <input type="text" class="ap-form-txt" placeholder="más? escribe otra cantidad" id="txtboxToFilter" autocomplete="off">
+                        <input type="hidden" name="Price" value="" />
+                        <a href="javascript:void(0)" class="ap-btn ap-btn--pay icon-heart btn-dnt" data-contribuir="true">Contribuir</a>
+                        <small class="ap-txt--small">Powered by Paypal</small>
+                    </form>
+                </nav>
+            </div>
+        </div>
+    </div>
+</article>
+
+<article id="ap-modal--video" class="ap-overlay ap-modal--video">
+    <div class="ap-table">
+        <div class="ap-cell">
+            <div class="ap-md-area ap-modal ap-tube">
+                <a href="#" class="icon-close ap-modal-close ap-btn-close"></a>
+                <div class="ap-trailer-player">
+                    <div id="player"></div>
                 </div>
             </div>
         </div>
-    </article>
+    </div>
+</article>
 
-    @section scripts
+@section scripts
 {
     <script>
             $(function () {
@@ -135,16 +148,16 @@
             });
     </script>
 
-        @if (TempData["message"] != null)
-        {
-            <script>
+    @if (TempData["message"] != null)
+    {
+        <script>
             swal({
                 type: '@(TempData["type"]!=null ? Html.Raw(TempData["type"]) + "" : "success")',
                 text: '@Html.Raw(TempData["message"])',
                 allowEscapeKey: false,
                 allowOutsideClick:false
             });
-            </script>
-        }
-
+        </script>
     }
+
+}
