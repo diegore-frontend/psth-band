@@ -1,0 +1,30 @@
+﻿<!-- layout.nunjucks -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="">
+    <meta name="author" content="IA Interactive">
+
+    <title>Inicio | Combo mundial 2018</title>
+
+    <!-- Css -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,900" rel="stylesheet">
+    <link rel="stylesheet" href=@Url.Content("~/Content/css/psth-master.css")>
+    <link href="~/Content/sweetalert2.min.css" rel="stylesheet" />
+
+</head>
+<body class="ap" ontouchstart="">
+    <main class="ap-main ap-loading">
+        @RenderBody()
+    </main>
+    <!-- // Scripts -->
+    <script src=@Url.Content("~/Scripts/jquery-1.10.2.min.js")></script>
+    <script src=@Url.Content("~/Scripts/jquery.vendors.js")></script>
+    <script src=@Url.Content("~/Scripts/actions/jquery.actions.js")></script>
+    <script src="~/Scripts/sweetalert2.min.js"></script>
+    @RenderSection("scripts", false)<!-- Block scripts -->
+    
+</body>
+</html>

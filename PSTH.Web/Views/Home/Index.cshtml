@@ -1,0 +1,150 @@
+﻿@model PSTH.Web.Controllers.IndexViewModel
+    <!-- Block content -->
+    <section class="ap-home ap-lay">
+        <div class="ap-table">
+            <div class="ap-cell">
+                <div class="ap-area">
+                    <h1 class="ap-tt">
+                        <small class="ap-tt--small">Rising</small>
+                        <!-- The Phoenix -->
+                    </h1>
+                    <div class="ap-hm-cta">
+                        <figure class="ap-img">
+                            <!-- <img src="/Content/img/img-front.png" alt="Phoenix Survive The Hurricane" class="ap-img-itm"> -->
+                        </figure>
+                        <a href="" class="ap-btn ap-btn--play">
+                            <span class="icon-controller-play"></span>
+                            Dale Play
+                        </a>
+                    </div>
+
+                    <nav class="ap-nav">
+                        <a href="#" class="ap-btn ap-btn--pay icon-heart">Contribuir</a>
+                        <small class="ap-txt--small">Powered by Paypal</small>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <article id="ap-modal--loading" class="ap-overlay ap-modal--loading ap-modal--is-visible">
+        <div class="ap-table">
+            <div class="ap-cell">
+                <div class="ap-load-area">
+                    <a href="#" class="icon-left ap-modal-close ap-btn-close"></a>
+                    <figure class="ap-load-item">
+                        <img src=@Url.Content("~/Content/img/img-ld-ball.png") alt="Balón">
+                    </figure>
+                    <p class="ap-txt">Cargando...</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article id="ap-modal--data" class="ap-overlay ap-modal--data ap-modal--is-visible">
+        <div class="ap-table">
+            <div class="ap-cell">
+                <div class="ap-md-area ap-modal ap-data">
+                    <a href="#" class="icon-left ap-modal-close ap-btn-close">Ver video</a>
+
+                    <h1 class="ap-tt">
+                        <small class="ap-tt--small">La meta</small>
+                        <span class="ap-tt ap-js--num">$10,000</span>
+                    </h1>
+
+                    <div class="ap-dash cf">
+                        <div class="ap-dash-lf">
+                            <p class="ap-txt ap-txt--nu">$1000</p>
+                            <p class="ap-txt">Meta</p>
+                        </div>
+                        <div class="ap-dash-bar">
+                            <span class="ap-dash-bar--progress">
+                                <span class="ap-dash-bar--progress-in progress"></span>
+                            </span>
+                        </div>
+                        <div class="ap-dash-rg">
+                            <p class="ap-txt ap-txt--nu">10K</p>
+                            <p class="ap-txt">Alcanzado</p>
+                        </div>
+                    </div>
+
+                    <nav class="ap-pay-opt">
+                        <form name="payment" action="@Url.Action("Payment","Payment")" method="post">
+                            <div class="cf">
+                                <a href="javascript:void(0)" class="ap-btn-tag btn-dnt" data-value="50">$50</a>
+                                <a href="javascript:void(0)" class="ap-btn-tag btn-dnt" data-value="100">$100</a>
+                                <a href="javascript:void(0)" class="ap-btn-tag btn-dnt" data-value="200">$200</a>
+                                <a href="javascript:void(0)" class="ap-btn-tag btn-dnt ap-btn-tag--selected" data-value="500">$500</a>
+                            </div>
+
+                            <input type="text" class="ap-form-txt" placeholder="más? escribe otra cantidad" id="txtboxToFilter">
+                            <input type="hidden" name="Price" value="" />
+                            <a href="javascript:void(0)" class="ap-btn ap-btn--pay icon-heart btn-dnt" data-contribuir="true">Contribuir</a>
+                            <small class="ap-txt--small">Powered by Paypal</small>
+                        </form>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    @section scripts
+{
+    <script>
+            $(function () {
+                var total = '@Model.Total';
+                var percent = (total / 10000) * 100;
+
+                    $('span.progress').css({
+                        'width': percent + '%'
+                    });
+
+                $('a.btn-dnt').on('click', function () {
+                    var self = $(this);
+                    console.log(self.data('contribuir'));
+                    if (self.data('contribuir') === true
+                    ) {
+                        if ($('input.ap-form-txt').val() === '') {
+                            $('input.ap-form-txt').focus();
+                            return false;
+                        } else {
+                            $('input[name="Price"]').val($('input.ap-form-txt').val());
+                        }
+                    } else {
+                        $('input[name="Price"]').val(self.data('value'));
+                    }
+                    console.log($('input[name="Price"]').val());
+                    $('form[name="payment"]').submit();
+                    return false;
+                });
+
+                $("#txtboxToFilter").keydown(function (e) {
+                    if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110]) !== -1 ||
+                        (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                        (e.keyCode === 67 && (e.ctrlKey === true || e.metaKey === true)) ||
+                        (e.keyCode === 88 && (e.ctrlKey === true || e.metaKey === true)) ||
+                        (e.keyCode >= 35 && e.keyCode <= 39)) {
+                        return;
+                    }
+
+                    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                        e.preventDefault();
+                    }
+                });
+            });
+    </script>
+
+        @if (TempData["message"] != null)
+        {
+            <script>
+            swal({
+                type: '@(TempData["type"]!=null ? Html.Raw(TempData["type"]) + "" : "success")',
+                text: '@Html.Raw(TempData["message"])',
+                allowEscapeKey: false,
+                allowOutsideClick:false
+            });
+            </script>
+        }
+
+    }
