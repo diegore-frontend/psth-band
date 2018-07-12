@@ -14,120 +14,132 @@ var $mScroll = $('.ap-scroll'),
 
 var isFootball = false;
 
-$(function(){
-	loader();
-	explorer();
-	$('input:checkbox, .ap-sl').uniform();
+$(function () {
+    loader();
+    explorer();
+    $('input:checkbox, .ap-sl').uniform();
 
-	// Show modal
-	$(document).on('click', 'a.ap-mol', function (e) {
-		e.preventDefault();
+    $(document).on('click', 'a#view', function () {
 
-		var $link = $(this).attr('href'),
+        $('article#ap-modal--video').fadeIn(200, function () {
+            $(this).addClass('ap-modal--is-visible');
+            openYouTube()
+        });
+
+    });
+
+    // Show modal
+    $(document).on('click', 'a.ap-mol', function (e) {
+        e.preventDefault();
+
+        var $link = $(this).attr('href'),
 			  $el = $($link),
 			  $vis = $('.ap-modal--is-visible');
 
-		$vis.removeClass('ap-modal--is-visible');
+        $vis.removeClass('ap-modal--is-visible');
 
-		$el.fadeIn(200, function(){
-			$el.addClass('ap-modal--is-visible');
-		});
+        $el.fadeIn(200, function () {
+            $el.addClass('ap-modal--is-visible');
+        });
 
-		if ($link === '#ap-modal--video'){
-			openYouTube()
-		}
-	});
+        if ($link === '#ap-modal--video') {
+            openYouTube()
+        }
+    });
 
-	// Close modals
-	$mClose.on('click', function (e) {
-	    e.preventDefault();
-	    player.destroy();
-		closemodal.call(this);
-	});
+    // Close modals
+    $mClose.on('click', function (e) {
+        e.preventDefault();
+        var no = $(this).data('no') || 0;
 
-	$('.ap-modal-close').on('click', function (e) {
-		e.preventDefault();
-		closeEsc();
-	});
+        if (no != undefined && no !== 1)
+            player.destroy();
+        closemodal.call(this);
+    });
 
-	// Youtube Trailer
-	var player;
+    $('.ap-modal-close').on('click', function (e) {
+        e.preventDefault();
+        closeEsc();
+    });
 
-	function onYouTubeIframeAPIReady() {
-		openYouTube();
-	}
+    // Youtube Trailer
+    var player;
 
-	function start() {
-		player = new YT.Player('player', {
-			playerVars: { 'autoplay': 1, 'showinfo': 0, 'modestbranding': 0, 'rel': 0},
-			videoId: '7yIMm4AM0dM',
-			events: {
-				'onStateChange': onPlayerStateChange
-			}
-		});
-	}
+    function onYouTubeIframeAPIReady() {
+        openYouTube();
+    }
 
-	function onPlayerStateChange(event) {
-		if(event.data ==0){
-			removeYoutube();
-		}
-	}
+    function start() {
+        player = new YT.Player('player', {
+            playerVars: { 'autoplay': 1, 'showinfo': 0, 'modestbranding': 0, 'rel': 0 },
+            videoId: '7yIMm4AM0dM',
+            events: {
+                'onStateChange': onPlayerStateChange
+            }
+        });
+    }
 
-	function openYouTube() {
-		start();
-	}
+    function onPlayerStateChange(event) {
+        if (event.data == 0) {
+            removeYoutube();
+        }
+    }
 
-	function removeYoutube(){
-		// Remove Trailer
-		$('#ap-modal--video').fadeOut(function(){
-			player.destroy();
-		});
-	}
+    function openYouTube() {
+        start();
+    }
+
+    function removeYoutube() {
+        // Remove Trailer
+        $('#ap-modal--video').fadeOut(function () {
+            player.destroy();
+        });
+    }
 });
 
 $(document).keyup(function (e) {
-	if (e.keyCode == 27) {
-		e.preventDefault();
-		closeEsc();
-	}
+    if (e.keyCode == 27) {
+        e.preventDefault();
+        closeEsc();
+    }
 });
 
 function loader() {
-	setTimeout(function () {
-		if (!isFootball) {
-			$('.ap-modal--loading').fadeOut(function(){
-				$('.ap-main').removeClass('ap-loading').addClass('ap-main--ready');
-				$(this).removeClass('ap-modal--is-visible').removeAttr('style');
-			});
-		}
-	},1000);
+    setTimeout(function () {
+        if (!isFootball) {
+            $('.ap-modal--loading').fadeOut(function () {
+                $('.ap-main').removeClass('ap-loading').addClass('ap-main--ready');
+                $(this).removeClass('ap-modal--is-visible').removeAttr('style');
+            });
+        }
+    }, 1000);
 }
 
 function closeEsc() {
-	$('.ap-overlay').fadeOut(function(){
-			$(this).removeClass('ap-modal--is-visible').removeAttr('style');
-	});
+    $('.ap-overlay').fadeOut(function () {
+        $(this).removeClass('ap-modal--is-visible').removeAttr('style');
+    });
 }
 
 function closemodal() {
-	var $la = $(this),
+    var $la = $(this),
 			$parents = $la.parent().parent().parent().parent();
 
-	$parents.fadeOut(500, function(){
-		$parents.removeClass('ap-modal--is-visible').removeAttr('style')
-	});
+    $parents.fadeOut(500, function () {
+        $parents.removeClass('ap-modal--is-visible').removeAttr('style')
+    });
 }
 
 function explorer() {
-	if (/MSIE 9/i.test(navigator.userAgent) || /MSIE 10/i.test(navigator.userAgent) || /rv:11.0/i.test(navigator.userAgent)) {
-		$('body').addClass('ap-ie')
-	}
-	if (/Edge/i.test(navigator.userAgent)) {
-		$('body').addClass('ap-edge');
-	}
-	if (/rv:11.0/i.test(navigator.userAgent)) {
-		$('body').addClass('ap-ie-11')
-	}
+    if (/MSIE 9/i.test(navigator.userAgent) || /MSIE 10/i.test(navigator.userAgent) || /rv:11.0/i.test(navigator.userAgent)) {
+        $('body').addClass('ap-ie')
+    }
+    if (/Edge/i.test(navigator.userAgent)) {
+        $('body').addClass('ap-edge');
+    }
+    if (/rv:11.0/i.test(navigator.userAgent)) {
+        $('body').addClass('ap-ie-11')
+    }
 }
 
 
