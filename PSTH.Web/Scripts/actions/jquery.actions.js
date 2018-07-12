@@ -40,7 +40,8 @@ $(function(){
 
 	// Close modals
 	$mClose.on('click', function (e) {
-		e.preventDefault();
+	    e.preventDefault();
+	    player.destroy();
 		closemodal.call(this);
 	});
 
@@ -59,7 +60,7 @@ $(function(){
 	function start() {
 		player = new YT.Player('player', {
 			playerVars: { 'autoplay': 1, 'showinfo': 0, 'modestbranding': 0, 'rel': 0},
-			videoId: 'zzh6m72RCaI',
+			videoId: '7yIMm4AM0dM',
 			events: {
 				'onStateChange': onPlayerStateChange
 			}

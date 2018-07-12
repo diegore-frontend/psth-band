@@ -95,6 +95,7 @@
             <div class="ap-md-area ap-modal ap-tube">
                 <a href="#" class="icon-close ap-modal-close ap-btn-close"></a>
                 <div class="ap-trailer-player">
+                   @* <iframe width="560" height="315" src="https://www.youtube.com/embed/7yIMm4AM0dM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>*@
                     <div id="player"></div>
                 </div>
             </div>
@@ -115,7 +116,7 @@
 
                 $('a.btn-dnt').on('click', function () {
                     var self = $(this);
-                    console.log(self.data('contribuir'));
+                    
                     if (self.data('contribuir') === true
                     ) {
                         if ($('input.ap-form-txt').val() === '') {
@@ -127,7 +128,7 @@
                     } else {
                         $('input[name="Price"]').val(self.data('value'));
                     }
-                    console.log($('input[name="Price"]').val());
+                    
                     $('form[name="payment"]').submit();
                     return false;
                 });

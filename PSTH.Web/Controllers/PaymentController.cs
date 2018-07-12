@@ -85,7 +85,7 @@ namespace PSTH.Web.Controllers
                                         var price = float.Parse(paymentInfoType.GrossAmount.value);
                                         context.Payments.Add(new Payment
                                         {
-                                            Price = price / 100
+                                            Price = price
                                         });
                                         context.SaveChanges();
                                     }
