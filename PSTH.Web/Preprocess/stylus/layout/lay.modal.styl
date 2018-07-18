@@ -9,10 +9,6 @@
 		left: 0
 		z-index: 22;
 
-		&--leaving
-			.ap-overlay-area
-				animation: 1s fadeOutUpBig both !important
-
 		&-table
 			display: inline-table
 			height: 100%
@@ -84,16 +80,17 @@
 			&-btn
 				&-close
 					color: #fc1010;
-					font-size: 1.4em;
+					font-size: 2.4em;
 					line-height: 1.5em;
 					position: absolute;
-					top: 50%;
-					margin-top: -16em;
+					top: -0.6em;
+					right: 0.3em;
 
 		&--video
 			.ap-tube
 				max-width: 25em
 				margin: auto;
+				position: relative
 
 				iframe
 					width: 100%
@@ -101,30 +98,11 @@
 				+above(760px)
 					max-width: 53em
 
-		&--login
-			.ap-btn--login
-				background: $facebook
-				border-radius: 0;
-				border: none;
-				box-shadow: none;
-				color: #FFF;
-				font-family: $subFont
-				font-size: 1.3em;
-				font-weight: 400;
-				max-width: 100%;
-				padding: 2em 0
-				position: relative;
-				text-transform: none;
-
-				&:before
-					margin-right: 2em
-
-			.ap-modal
-				margin: auto;
-				max-width: 320px;
-				min-height: 320px;
-				padding-top: 340px;
-				position: relative;
+		&--data
+			.ap-btn-close
+				right: auto;
+				left: 1em;
+				font-size: 1em;
 
 		&--is-visible
 			display: block
@@ -134,30 +112,6 @@
 					opacity: 1
 					position: relative
 					z-index: 1
-
-		&--landscape
-			@media only screen and (min-width: 480px) and (max-width: 736px) and (orientation: landscape)
-				display: block
-
-			.ap-ldr-area
-				position: relative
-				color: #FFF
-				z-index: 2
-				padding: 1em
-				font-size: 2.5em
-
-			.ap-ldr-gif
-				max-width: 3em;
-				position: fixed;
-				bottom: 0.2em;
-				right: .2em;
-
-			.ap-txt
-				color: #FFF
-
-			.ap-cell
-				vertical-align: top
-
 
 #closeLogin
 	width: 40px

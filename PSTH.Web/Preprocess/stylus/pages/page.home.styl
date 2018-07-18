@@ -8,6 +8,7 @@
 	&-tt
 		font-size: 2em
 		letter-spacing: 4.2px;
+		line-height: .6em
 		margin-top: -3.4em;
 		position: absolute;
 		top: 50%;
@@ -22,10 +23,16 @@
 			font-size: 0.5em;
 			font-weight: 300;
 			margin-bottom: 0.2em;
+			opacity: 0
+
+		span
+			opacity: 0
+			display: block
 
 	&-img
 		max-width: 68em
 		margin: auto
+		opacity: 0
 
 		@media screen and (min-width: 480px) and (max-width: 760px)
 			max-width: 26em
@@ -34,13 +41,22 @@
 			width: 100%
 
 	&-btn--play
-		color: #fff;
-		font-size: 0.9em;
-		left: 50%;
-		margin-left: -3em;
-		margin-top: -1em;
-		position: absolute;
-		top: 50%;
+		color: #fff
+		font-size: 0.9em
+		left: 50%
+		margin-left: -3em
+		margin-top: -1em
+		position: absolute
+		top: 50%
+
+		&:before
+			background: rgba(0,0,0,.8)
+			content: ''
+			filter: blur(1em)
+			height: 100%
+			position: absolute
+			width: 100%
+			z-index: 1
 
 		+above(760px)
 			font-size: 1.3em
@@ -59,6 +75,10 @@
 			line-height: 2em;
 			margin: 0 auto 0.2em;
 
+		span
+			position: relative
+			z-index: 2
+
 	&-txt
 		display: block;
 		margin: -1em auto 1em;
@@ -75,9 +95,11 @@
 			display: inline-block
 			margin-bottom: .6em
 
+	// Data
 	&-data
 		max-width: 42em
 		margin: auto
+		position: relative
 
 		.ap-tt
 			font-weight: 700
@@ -149,3 +171,17 @@
 
 			.cf
 				margin: 2em 0
+
+// Fires animations
+.ap-main--ready
+	.ap-tt
+		small
+			animation: 1s fadeInUpSlw .6s both cubic-bezier(0.4, 0, 0.6, 1);
+
+		span
+			animation: 1s fadeInUpSlw .8s both cubic-bezier(0.2, 0, 0.6, 1);
+
+	.ap-img
+		animation: 2s fadeInUpSlw 1s both cubic-bezier(0.2, 0, 0.6, 1);
+
+
