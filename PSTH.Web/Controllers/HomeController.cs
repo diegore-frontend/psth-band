@@ -10,7 +10,7 @@ namespace PSTH.Web.Controllers
         {
             using (var context = new PSTHContext())
             {
-                var total = context.Payments.Sum(x => x.Price);
+								var total = context.Payments.Select(x => x.Price).DefaultIfEmpty(0f).Sum();
 
                 return View(new IndexViewModel()
                 {
