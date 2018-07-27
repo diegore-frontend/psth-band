@@ -146,6 +146,8 @@ $(function () {
 		}
 	});
 
+	$('.ap-btn-tag').removeClass('ap-btn-tag--selected');
+
 	$('.ap-btn-tag').on('click', function () {
 		$(this).toggleClass('ap-btn-tag--selected');
 	});
