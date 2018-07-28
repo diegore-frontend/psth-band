@@ -10,7 +10,7 @@
                         <span>The Phoenix</span>
                     </h1>
                     <figure class="ap-img">
-                        <img src=@Url.Content("~/Content/img/img-front.png") alt="Phoenix Survive The Hurricane" class="ap-img-itm">
+                        <img src=@Url.Content("~/Content/img/img-front.png") alt="Phoenix Survive The Hurricane" class="ap-img-itm"> 
                     </figure>
                     <a href="#ap-modal--video" class="ap-btn ap-btn--play ap-mol" >
                         <span class="icon-controller-play"></span>
@@ -26,13 +26,6 @@
                     <a href="#ap-modal--data" class="ap-btn ap-btn--pay icon-heart ap-mol">Contribuir</a>
                     <small class="ap-txt--small">Powered by Paypal</small>
                 </nav>
-            </div>
-            <div class="ap-contributed">
-            	<div class="ap-table">
-            		<div class="ap-cell">
-            			<div class="ap-contributed-heart icon-heart"></div>
-            		</div>
-            	</div>
             </div>
         </div>
     </div>
@@ -57,7 +50,7 @@
 
                 <h1 class="ap-tt">
                     <small class="ap-tt--small">La meta</small>
-                    <span class="ap-js--num">$<span class="ap-js--num-animated"data-count="10000"></span></span>
+                    <span class="ap-js--num">$10,000</span>
                 </h1>
 
                 <div class="ap-dash cf">
@@ -82,7 +75,7 @@
                             <a href="javascript:void(0)" class="ap-btn-tag btn-dnt" data-value="50">$50</a>
                             <a href="javascript:void(0)" class="ap-btn-tag btn-dnt" data-value="100">$100</a>
                             <a href="javascript:void(0)" class="ap-btn-tag btn-dnt" data-value="200">$200</a>
-                            <a href="javascript:void(0)" class="ap-btn-tag btn-dnt" data-value="500">$500</a>
+                            <a href="javascript:void(0)" class="ap-btn-tag btn-dnt ap-btn-tag--selected" data-value="500">$500</a>
                         </div>
 
                         <input type="text" class="ap-form-txt" placeholder="más? escribe otra cantidad" id="txtboxToFilter" autocomplete="off">
@@ -122,28 +115,22 @@
                     });
 
                 $('a.btn-dnt').on('click', function () {
-
                     var self = $(this);
-
-                    self.toggleClass('ap-btn-tag--selected');
-
-                    setTimeout(function() {
-
-	                    if (self.data('contribuir') === true
-	                    ) {
-	                        if ($('input.ap-form-txt').val() === '') {
-	                            $('input.ap-form-txt').focus();
-	                            return false;
-	                        } else {
-	                            $('input[name="Price"]').val($('input.ap-form-txt').val());
-	                        }
-	                    } else {
-	                        $('input[name="Price"]').val(self.data('value'));
-	                    }
-
-	                    $('form[name="payment"]').submit();
-	                    return false;
-	                  }, 1000);
+                    
+                    if (self.data('contribuir') === true
+                    ) {
+                        if ($('input.ap-form-txt').val() === '') {
+                            $('input.ap-form-txt').focus();
+                            return false;
+                        } else {
+                            $('input[name="Price"]').val($('input.ap-form-txt').val());
+                        }
+                    } else {
+                        $('input[name="Price"]').val(self.data('value'));
+                    }
+                    
+                    $('form[name="payment"]').submit();
+                    return false;
                 });
 
                 $("#txtboxToFilter").keydown(function (e) {

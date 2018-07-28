@@ -34,15 +34,23 @@ $(function () {
   	$el = $($link),
   	$vis = $('.ap-modal--is-visible');
 
-		$vis.removeClass('ap-modal--is-visible');
+  	$('.ap-contributed').fadeIn();
+  	setTimeout(function() {
+			$vis.removeClass('ap-modal--is-visible');
 
-		$el.fadeIn(200, function () {
-			$el.addClass('ap-modal--is-visible');
-		});
+			$el.fadeIn(200, function () {
+				$el.addClass('ap-modal--is-visible');
+			});
 
-		if ($link === '#ap-modal--video') {
-			openYouTube()
-		}
+			if ($link === '#ap-modal--video') {
+					openYouTube();
+			}
+
+			if ($link === '#ap-modal--data') {
+				countNumbers()
+			}
+			$('.ap-contributed').fadeOut();
+		}, 3000);
 	});
 
 
@@ -75,7 +83,7 @@ $(function () {
 
 	function start() {
 		player = new YT.Player('player', {
-			playerVars: { 'autoplay': 1, 'showinfo': 0, 'modestbranding': 0, 'rel': 0, 'controls': 0, 'playsinline': 1 },
+			playerVars: { 'autoplay': 1, 'showinfo': 0, 'modestbranding': 1, 'rel': 0, 'controls': 0, 'playsinline': 1 },
 			videoId: '7yIMm4AM0dM',
 			events: {
 				'onStateChange': onPlayerStateChange
@@ -96,7 +104,7 @@ $(function () {
 	function removeYoutube() {
 		// Remove Trailer
 		$('#ap-modal--video').fadeOut(function () {
-			//player.destroy();
+			countNumbers();
 		});
 	}
 
@@ -146,11 +154,37 @@ $(function () {
 		}
 	});
 
-	$('.ap-btn-tag').removeClass('ap-btn-tag--selected');
+	function countNumbers() {
+		$('.ap-js--num-animated').each(function() {
+		  var $this = $(this),
+		    	countTo = $this.attr('data-count');
 
-	$('.ap-btn-tag').on('click', function () {
-		$(this).toggleClass('ap-btn-tag--selected');
-	});
+		  $({countNum: $this.text()
+		  }).animate({
+		      countNum: countTo
+		    },
+
+		    {
+		      duration: 5000,
+		      easing: 'linear',
+		      step: function() {
+		        $this.text(commaSeparateNumber(Math.floor(this.countNum)));
+		      },
+		      complete: function() {
+		        $this.text(commaSeparateNumber(this.countNum));
+		        //alert('finished');
+		      }
+		    }
+		  );
+		});
+
+		function commaSeparateNumber(val) {
+		  while (/(\d+)(\d{3})/.test(val.toString())) {
+		    val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
+		  }
+		  return val;
+		}
+	}
 });
 
 

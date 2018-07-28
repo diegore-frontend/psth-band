@@ -106,6 +106,10 @@
 			font-size: 1.8em
 			position: relative
 
+			+above(760px)
+				font-size: 5em;
+				margin: 0;
+
 			&--small
 				font-weight: 300
 				color: $redf
@@ -119,15 +123,15 @@
 			float: left
 
 		&-lf
-			width: 4.4em
+			width: 6em
 
 		&-rg
-			width: 5em
+			width: 4.2em
 
 		&-bar
 			float: left;
-			margin-right: 1em;
-			width: calc(100% - 10.4em);
+			width: calc(100% - 12.2em);
+			margin: 0 1em 0 1em;
 
 			&--progress
 				height: .8em
